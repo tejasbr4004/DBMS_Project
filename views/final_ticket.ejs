@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Ticket</title>
+</head>
+</head>
+<style type="text/css">h1 {
+    text-align: center;
+    font-size: 34
+}
+
+body {
+    margin: 30px;
+  background-color: rgb(56, 188, 206) ;
+  border: 1px solid black;
+  
+  
+    
+}
+
+p {
+  margin-left: 50px;
+font-color:white;
+font-weight: bold;
+
+  }
+  div.transbox {
+  margin: 30px;
+  background-color: white;
+  border: 1px solid black;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+h4{
+    text-align: left;
+    margin-left: 50px
+}
+#content {
+    width: 1000px;
+    margin:0 auto;
+    padding: 5px;
+    overflow:hidden;/*contain child floats*/
+    background: none; 
+}
+#package_update {
+    width: 500px;
+    height: 150px;
+    float: left;
+    background: none;
+    font-color: white;
+}
+
+#previous_update {
+    width: 500px;
+        height: 150px;
+    float: right;
+    background: none;
+    font-color: white;
+}
+h3{
+    text-align: right;
+}
+h5{
+    text-align: right;
+}
+</style>
+
+<body>
+
+         <h1>Your Ticket Is Ready</h1>
+
+         </div>
+       </br>
+
+       
+       <div class="transbox">
+       <h1>HAPPY JOURNEY</h1>
+       </br>
+       <h4>Ticket No : <%=data[0].book_id%> </h4>
+<div id="content">
+    <div id="package_update">
+	 <p>Train No: <%=data[0].train_no%></p>
+    <p>From: <%=data[0].source%></p>
+	<p>To: <%=data[0].destination%></p>
+	
+    
+    <p></p>
+</div>
+   <!-- <?php echo $_GET["cost"];?> -->
+    <div id="previous_update">
+        <p>Date: <%= data[0].date %></p>
+        <p>No. Of Seats: <%=data[0].no_of_seats%> </p>
+    <p>Ticket Price: <%=data[0].price%></p>
+    <p>  </p>
+    <!-- <p>Due:0.00tk</p></div> -->
+    <h3>This is a computer generated ticket, no signature required.</h3>
+    </br>
+    <br>
+</div>
+<div style="text-align: centre;"><a href="/">Return to home</a></div></div>
+</div>
+</body>
+</html>

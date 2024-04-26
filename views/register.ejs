@@ -1,0 +1,22 @@
+<% layout('layouts/index.ejs')%>
+    <div class="myH2">
+        <form action="/register" method="POST">
+            <label for="name">Enter your name : </label><br>
+            <input type="text" id="name" name="name" required><br>
+            <label for="username">Enter your username : </label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Enter your password : </label><br>
+            <input type="password" name="password" id="password" required><br>
+            <label for="confirm_password">Enter your password once again : </label><br>
+            <input type="password" name="confirm_password" id="confirm_password" required><br>
+            <label for="email">Enter your email address : </label><br>
+            <input type="email" name="email" id="email" required><br>
+            <label for="address">Enter your address : </label><br>
+            <input type="address" name="address" id="address" required><br>
+            <label for="bank_ac">Enter your account number : </label><br>
+            <input type="bank_ac" name="bank_ac" id="bank_ac"required><br>
+            <label for="phone_no">Enter your phone number : </label><br>
+            <input type="tel" name="phone_no" id="phone_no" pattern="[0-9]{10}" required><br>
+            <input type="submit">
+        </form>
+    </div>

@@ -1,0 +1,31 @@
+<% layout('layouts/index.ejs')%>
+
+    <div class="myH2">
+        <table>
+            <tr>
+                <th>Train Name </th>
+                <th>Source </th>
+                <th>Destination </th>
+                <th>Time </th>
+                <th>Book Your Ticket </th>
+            </tr>
+            <% for (var i=0; i < data.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= data[i].name %>
+                    </td>
+                    <td>
+                        <%= data[i].source %>
+                    </td>
+                    <td>
+                        <%= data[i].destination %>
+                    </td>
+                    <td>
+                        <%= data[i].start_time %>
+                    </td>
+                    <td>
+                        <a href="/book/<%= data[i].train_no%>">Book</a>
+                    </td>
+                </tr>
+                <% } %>
+        </table>

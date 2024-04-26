@@ -1,0 +1,33 @@
+<% layout('layouts/index.ejs')%>
+    <%if (no_trains_error==true) {%>
+        <div class="myH2" style=" color: rgb(194, 2, 2);">Could not find the train you were looking for
+            :(</div>
+        <div class="myP" style="text-align: center;color: rgb(194, 2, 2);"> Pls try again</div>
+        <%}%>
+            <div class="myH2" style="font-weight: bolder;">Find Trains</div>
+            <div class="myH2">
+                <form action="/search" method="POST">
+                    <label for="source">Enter your source:</label>
+                    <input list="cities" name="source" id="source">
+                        <datalist id="cities">
+                        <% for(let i=0 ; i < stations.length ; i++) { %>
+                            <option value="<%= stations[i].city %>">
+                                <%= stations[i].city %>
+                            </option>
+                            <% } %>
+                        </datalist>
+                    </select>
+                    <label for="destination">Enter your destination:</label>
+                    <input list="destinations" name="destination" id="destination">
+                        <datalist id="destinations">
+                        <% for(let i=0 ; i < stations.length ; i++) { %>
+                            <option value="<%= stations[i].city %>">
+                                <%= stations[i].city %>
+                            </option>
+                            <% } %>
+                        </datalist>
+                    </select>
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+            <br><br>

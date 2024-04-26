@@ -1,0 +1,13 @@
+<% layout('layouts/index.ejs')%>
+    <div>
+        <h2 class="myH2">Enter your Login Details</h2>
+        <!-- create login and password form -->
+        <form class="myH2" action="/login" method="POST">
+            <label for="username">Enter your username : </label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Enter your password </label><br>
+            <input type="password" name="password" id="password"><br>
+            <input type="submit">
+        </form>
+
+    </div>

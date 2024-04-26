@@ -1,0 +1,54 @@
+<% layout('layouts/index.ejs')%>
+    <%if(data.length==0) {%>
+        <h2 class="myH2">Welp , you haven't booked any tickets yet</h2>
+        <h3 class="myP" style="text-align: center;"><a href="/search">Click here to book tickets now!!</a></h3>
+        <%} else {%>
+
+            <div class="myP">
+                <table>
+                    <tr>
+                        <th>Train No </th>
+                        <th>Source</th>
+                        <th>Destination</th>
+                        <th>Date</th>
+                        <th>Seat Class</th>
+                        <th>No_of Seats</th>
+                        <th>Price</th>
+                        <th>Ticket Generate</th>
+                        <th>Cancel Ticket</th>
+
+                    </tr>
+                    <% for (var i=0; i < data.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= data[i].train_no %>
+                            </td>
+                            <td>
+                                <%= data[i].source %>
+                            </td>
+                            <td>
+                                <%= data[i].destination %>
+                            </td>
+                            <td>
+                                <%= data[i].date %>
+                            </td>
+                            <td>
+                                <%= data[i].seat_class %>
+                            </td>
+                            <td>
+                                <%= data[i].no_of_seats %>
+                            </td>
+                            <td>
+                                <%= data[i].price %>
+                            </td>
+                            <td>
+                                <a href="/final_ticket/<%=data[i].book_id%>">Show Ticket</a>
+                            </td>
+                            <td>
+                                <a href="/cancel_ticket/<%=data[i].book_id%>">Cancel</a>
+                            </td>
+                        </tr>
+                        <% } %>
+                </table>
+            </div>
+            <%}%>
