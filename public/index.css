@@ -30,12 +30,12 @@ body {
 
 .nav div.logo a {
     text-decoration: none;
-    color: #00E676;
+    color: #fff;
     font-size: 2.5rem;
 }
 
 .nav div.logo a:hover {
-    color: #ffffff;
+    color: #d56904;
 }
 
 .nav div.main_list {
@@ -61,13 +61,14 @@ body {
 
 .nav div.main_list ul li a {
     text-decoration: none;
-    color: #fff;
+    color: #ffff;
     line-height: 65px;
     font-size: 2.4rem;
+    font-weight: bold;
 }
 
 .nav div.main_list ul li a:hover {
-    color: #00E676;
+    color: #d56904;
 }
 
 
@@ -75,8 +76,8 @@ body {
 
 .home {
     width: 100%;
-    height: 75vh;
-    background-image: url("./asd.jpg");
+    height: 100vh;
+    background-image: url("./train2.jpg");
     background-position: center bottom;
 	background-size:cover;
 }
@@ -338,7 +339,9 @@ body {
 
 .affix {
     padding: 0;
-    background-color: #111;
+    background: linear-gradient(45deg, #0b0b0b, #b26821);
+    border-bottom-left-radius: 15px;
+    box-shadow: 1px 1px 6px 0px #eac073;
 }
 
 
