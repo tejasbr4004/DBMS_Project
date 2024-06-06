@@ -1,106 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Ticket</title>
 </head>
-</head>
-<style type="text/css">h1 {
-    text-align: center;
-    font-size: 34
-}
 
-body {
-    margin: 30px;
-  background-color: rgb(56, 188, 206) ;
-  border: 1px solid black;
-  
-  
-    
-}
+<style>
+    h1 {
+        text-align: center;
+        font-size: 40px;
+        /* Increased font size */
+        color: #333;
+        /* Text color */
+    }
 
-p {
-  margin-left: 50px;
-font-color:white;
-font-weight: bold;
+    .transbox {
+        margin: 30px auto;
+        width: 800px;
+        padding: 20px;
+        background-color: #f0f0f0;
+        /* Light background color */
+        border: 2px solid #666;
+        /* Border color */
+        border-radius: 10px;
+        /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        /* Box shadow */
+    }
 
-  }
-  div.transbox {
-  margin: 30px;
-  background-color: white;
-  border: 1px solid black;
-  opacity: 0.6;
-  filter: alpha(opacity=60);
-}
-h4{
-    text-align: left;
-    margin-left: 50px
-}
-#content {
-    width: 1000px;
-    margin:0 auto;
-    padding: 5px;
-    overflow:hidden;/*contain child floats*/
-    background: none; 
-}
-#package_update {
-    width: 500px;
-    height: 150px;
-    float: left;
-    background: none;
-    font-color: white;
-}
+    .transbox h1,
+    .transbox h4,
+    .transbox p,
+    .transbox h3,
+    .transbox h5,
+    .transbox a {
+        font-size: 24px;
+        /* Increased font size */
+        margin: 10px;
+        color: #333;
+        /* Text color */
+    }
 
-#previous_update {
-    width: 500px;
-        height: 150px;
-    float: right;
-    background: none;
-    font-color: white;
-}
-h3{
-    text-align: right;
-}
-h5{
-    text-align: right;
-}
+    .transbox h4 {
+        font-weight: bold;
+    }
+
+    #content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #package_update,
+    #previous_update {
+        width: 45%;
+    }
+
+    .transbox h3,
+    .transbox h5 {
+        text-align: right;
+    }
+
+    .transbox a {
+        text-decoration: none;
+        color: #007bff;
+        /* Link color */
+    }
+
+    .transbox a:hover {
+        text-decoration: underline;
+    }
 </style>
 
 <body>
 
-         <h1>Your Ticket Is Ready</h1>
+    <h1>Your Ticket Is Ready</h1>
 
-         </div>
-       </br>
+    <div class="transbox">
+        <h1>HAPPY JOURNEY</h1>
+        <h4>Ticket No: <%=data[0].book_id%>
+        </h4>
+        <div id="content">
+            <div id="package_update">
+                <p>Train No: <%=data[0].train_no%>
+                </p>
+                <p>From: <%=data[0].source%>
+                </p>
+                <p>To: <%=data[0].destination%>
+                </p>
+            </div>
+            <div id="previous_update">
+                <p>Date: <%= data[0].date %>
+                </p>
+                <p>No. Of Seats: <%=data[0].no_of_seats%>
+                </p>
+                <p>Ticket Price: <%=data[0].price%>
+                </p>
+                <h3>This is a computer-generated ticket, no signature required.</h3>
+            </div>
+        </div>
+        <div style="text-align: right;"><a href="/">Return to home</a></div>
+    </div>
 
-       
-       <div class="transbox">
-       <h1>HAPPY JOURNEY</h1>
-       </br>
-       <h4>Ticket No : <%=data[0].book_id%> </h4>
-<div id="content">
-    <div id="package_update">
-	 <p>Train No: <%=data[0].train_no%></p>
-    <p>From: <%=data[0].source%></p>
-	<p>To: <%=data[0].destination%></p>
-	
-    
-    <p></p>
-</div>
-   <!-- <?php echo $_GET["cost"];?> -->
-    <div id="previous_update">
-        <p>Date: <%= data[0].date %></p>
-        <p>No. Of Seats: <%=data[0].no_of_seats%> </p>
-    <p>Ticket Price: <%=data[0].price%></p>
-    <p>  </p>
-    <!-- <p>Due:0.00tk</p></div> -->
-    <h3>This is a computer generated ticket, no signature required.</h3>
-    </br>
-    <br>
-</div>
-<div style="text-align: centre;"><a href="/">Return to home</a></div></div>
-</div>
 </body>
+
 </html>

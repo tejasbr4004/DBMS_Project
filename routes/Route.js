@@ -12,6 +12,7 @@ const bookTicketController=require('../Controller/bookTicketController');
 const booking_historyController=require('../Controller/bookhistory');
 const cancelTicketController=require('../Controller/cancelTicketController');
 const FinalticketController=require('../Controller/FinalticketController');
+const AdminController=require('../Controller/AdminController');
 
 
 
@@ -24,10 +25,10 @@ router.get('/test',TestController.TestGet);
 router.get('/login',LoginController.LoginGet);
 router.post('/login',LoginController.LoginPost);
 
+router.get('/admin', AdminController.AdminGet);
 
 router.get('/register',RegisterController.RegisterGet);
 router.post('/register',RegisterController.RegisterPost);
-
 
 router.get('/logout',logoutController.logoutGet);
 

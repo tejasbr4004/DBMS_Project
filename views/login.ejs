@@ -1,13 +1,73 @@
 <% layout('layouts/index.ejs')%>
-    <div>
-        <h2 class="myH2">Enter your Login Details</h2>
-        <!-- create login and password form -->
-        <form class="myH2" action="/login" method="POST">
-            <label for="username">Enter your username : </label><br>
-            <input type="text" id="username" name="username"><br>
-            <label for="password">Enter your password </label><br>
-            <input type="password" name="password" id="password"><br>
-            <input type="submit">
-        </form>
+<head>
+    <style>
+        .myH2 {
+            font-family: Arial, sans-serif;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        form {
+            width: 320px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: calc(100% - 16px); /* Adjusting for padding inside input */
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div>
+            <h2 class="myH2">Enter your Login Details</h2>
+            <!-- create login and password form -->
+            <form action="/login" method="POST">
+                <label for="username">Enter your username:</label>
+                <input type="text" id="username" name="username">
+                <label for="password">Enter your password:</label>
+                <input type="password" name="password" id="password">
+                <input type="submit" value="Login">
+            </form>
+        </div>
     </div>
+</body>

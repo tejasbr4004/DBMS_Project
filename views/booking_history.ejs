@@ -1,60 +1,108 @@
 <% layout('layouts/index.ejs')%>
+
+    <style>
+        .myH2 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .myP {
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .table-container {
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            font-size: 15px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
     <%if(data.length==0) {%>
-        <h2 class="myH2">Welp , you haven't booked any tickets yet</h2>
-        <h3 class="myP" style="text-align: center;"><a href="/search">Click here to book tickets now!!</a></h3>
-        <%} else {%>
+        <h2 class="myH2">Welp, you haven't booked any tickets yet</h2>
+        <h3 class="myP"><a href="/search">Click here to book tickets now!!</a></h3>
 
-            <div class="myP">
+        <% } else { %>
+            <div class="table-container">
                 <table>
-                    <tr>
-                        <th>Train No </th>
-                        <th>Source</th>
-                        <th>Destination</th>
-                        <th>Date</th>
-                        <th>Seat Class</th>
-                        <th>No_of Seats</th>
-                        <th>Price</th>
-                        <th>Ticket Generate</th>
-                        <th>Cancel Ticket</th>
-
-                    </tr>
-                    <% for (var i=0; i < data.length; i++) { %>
-                        <% 
-                            var bookingDate = new Date(data[i].date);
-                            var currentDate = new Date();
-                        %>
+                    <thead>
                         <tr>
-                            <td>
-                                <%= data[i].train_no %>
-                            </td>
-                            <td>
-                                <%= data[i].source %>
-                            </td>
-                            <td>
-                                <%= data[i].destination %>
-                            </td>
-                            <td>
-                                <%= data[i].date %>
-                            </td>
-                            <td>
-                                <%= data[i].seat_class %>
-                            </td>
-                            <td>
-                                <%= data[i].no_of_seats %>
-                            </td>
-                            <td>
-                                <%= data[i].price %>
-                            </td>
-                            <td>
-                                <a href="/final_ticket/<%=data[i].book_id%>">Show Ticket</a>
-                            </td>
-                            <td>
-                                <% if (bookingDate >= currentDate) { %>
-                                    <a href="/cancel_ticket/<%=data[i].book_id%>" onclick="return confirm('Are you sure you want to cancel the ticket?');">Cancel</a>
-                                <% } %>
-                            </td>
+                            <th>Train No</th>
+                            <th>Source</th>
+                            <th>Destination</th>
+                            <th>Date</th>
+                            <th>Seat Class</th>
+                            <th>No_of Seats</th>
+                            <th>Price</th>
+                            <th>Ticket Generate</th>
+                            <th>Cancel Ticket</th>
                         </tr>
-                        <% } %>
+                    </thead>
+                    <tbody>
+                        <% for (var i=0; i < data.length; i++) { %>
+                            <% var bookingDate=new Date(data[i].date); var currentDate=new Date(); %>
+                                <tr>
+                                    <td>
+                                        <%= data[i].train_no %>
+                                    </td>
+                                    <td>
+                                        <%= data[i].source %>
+                                    </td>
+                                    <td>
+                                        <%= data[i].destination %>
+                                    </td>
+                                    <td>
+                                        <%= data[i].date %>
+                                    </td>
+                                    <td>
+                                        <%= data[i].seat_class %>
+                                    </td>
+                                    <td>
+                                        <%= data[i].no_of_seats %>
+                                    </td>
+                                    <td>
+                                        <%= data[i].price %>
+                                    </td>
+                                    <td><a href="/final_ticket/<%=data[i].book_id%>">Show Ticket</a></td>
+                                    <td>
+                                        <% if (bookingDate>= currentDate) { %>
+                                            <a href="/cancel_ticket/<%=data[i].book_id%>"
+                                                onclick="return confirm('Are you sure you want to cancel the ticket?');">Cancel</a>
+                                            <% } %>
+                                    </td>
+                                </tr>
+                                <% } %>
+                    </tbody>
                 </table>
             </div>
-            <%}%>
+            <% } %>

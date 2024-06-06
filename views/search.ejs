@@ -1,33 +1,119 @@
-<% layout('layouts/index.ejs')%>
-    <%if (no_trains_error==true) {%>
-        <div class="myH2" style=" color: rgb(194, 2, 2);">Could not find the train you were looking for
-            :(</div>
-        <div class="myP" style="text-align: center;color: rgb(194, 2, 2);"> Pls try again</div>
-        <%}%>
-            <div class="myH2" style="font-weight: bolder;">Find Trains</div>
-            <div class="myH2">
-                <form action="/search" method="POST">
-                    <label for="source">Enter your source:</label>
-                    <input list="cities" name="source" id="source">
+<% layout('layouts/index.ejs') %>
+
+    <head>
+        <style>
+            .myH2 {
+                font-family: Arial, sans-serif;
+                color: #333;
+                text-align: center;
+                margin-bottom: 30px;
+                font-size: 24px;
+                /* Increased font size */
+            }
+
+            .myP {
+                font-family: Arial, sans-serif;
+                color: #666;
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 18px;
+                /* Increased font size */
+            }
+
+            form {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 30px;
+                /* Increased padding */
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                background-color: #f9f9f9;
+                box-sizing: border-box;
+                margin-bottom: 30px;
+                /* Added bottom margin */
+            }
+
+            label {
+                display: block;
+                margin-bottom: 10px;
+                /* Increased margin */
+                font-weight: bold;
+                font-size: 20px;
+                /* Increased font size */
+            }
+
+            input[type="text"] {
+                font-size: 18px;
+                padding: 10px 30px;
+            }
+
+            input[type="text"],
+            input[type="submit"] {
+                width: calc(100% - 16px);
+                padding: 12px;
+                /* Increased padding */
+                margin-bottom: 20px;
+                /* Increased margin */
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                font-size: 16px;
+                /* Increased font size */
+            }
+
+            input[type="submit"] {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                /* Increased font size */
+            }
+
+            input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+
+    <body>
+        <% if (no_trains_error==true) { %>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="myH2" style="color: rgb(194, 2, 2);">Could not find the train you were looking for :(</div>
+            <div class="myP" style="color: rgb(194, 2, 2);">Please try again</div>
+            <% } %>
+                <br>
+                <br>
+                <br>
+                <div class="myH2" style="font-weight: bolder; text-align: center;">Find Trains</div>
+                <div>
+                    <form action="/search" method="POST">
+                        <label for="source">Enter your source:</label>
+                        <input list="cities" name="source" id="source">
                         <datalist id="cities">
-                        <% for(let i=0 ; i < stations.length ; i++) { %>
-                            <option value="<%= stations[i].city %>">
-                                <%= stations[i].city %>
-                            </option>
-                            <% } %>
+                            <% for (let i=0; i < stations.length; i++) { %>
+                                <option value="<%= stations[i].city %>">
+                                    <%= stations[i].city %>
+                                </option>
+                                <% } %>
                         </datalist>
-                    </select>
-                    <label for="destination">Enter your destination:</label>
-                    <input list="destinations" name="destination" id="destination">
+
+                        <label for="destination">Enter your destination:</label>
+                        <input list="destinations" name="destination" id="destination">
                         <datalist id="destinations">
-                        <% for(let i=0 ; i < stations.length ; i++) { %>
-                            <option value="<%= stations[i].city %>">
-                                <%= stations[i].city %>
-                            </option>
-                            <% } %>
+                            <% for (let i=0; i < stations.length; i++) { %>
+                                <option value="<%= stations[i].city %>">
+                                    <%= stations[i].city %>
+                                </option>
+                                <% } %>
                         </datalist>
-                    </select>
-                    <input type="submit" value="Search">
-                </form>
-            </div>
-            <br><br>
+                        <br>
+                        <br>
+                        <br>
+                        <input type="submit" value="Search">
+                    </form>
+                </div>
+    </body>

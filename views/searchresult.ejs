@@ -1,13 +1,66 @@
-<% layout('layouts/index.ejs')%>
+<% layout('layouts/index.ejs') %>
 
-    <div class="myH2">
+    <head>
+        <style>
+            .myH2 {
+                font-family: Arial, sans-serif;
+                color: #333;
+                text-align: center;
+                margin-bottom: 30px;
+                font-size: 24px;
+                /* Increased font size */
+            }
+
+            table {
+                width: 80%;
+                /* Decreased table width */
+                border-collapse: collapse;
+                margin: 0 auto;
+                font-size: 18px;
+                /* Increased font size */
+            }
+
+            th,
+            td {
+                border: 1px solid #333;
+                /* Darker border color */
+                padding: 10px;
+                /* Increased padding */
+                text-align: center;
+                color: #444;
+                /* Darker font color */
+            }
+
+            th {
+                background-color: #f2f2f2;
+                font-weight: bold;
+            }
+
+            a {
+                text-decoration: none;
+                color: #4CAF50;
+                font-weight: bold;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+
+    <body>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="myH2">Train Schedule</div>
         <table>
             <tr>
-                <th>Train Name </th>
-                <th>Source </th>
-                <th>Destination </th>
-                <th>Time </th>
-                <th>Book Your Ticket </th>
+                <th>Train Name</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Time</th>
+                <th>Book Your Ticket</th>
             </tr>
             <% for (var i=0; i < data.length; i++) { %>
                 <tr>
@@ -23,9 +76,8 @@
                     <td>
                         <%= data[i].start_time %>
                     </td>
-                    <td>
-                        <a href="/book/<%= data[i].train_no%>">Book</a>
-                    </td>
+                    <td><a href="/book/<%= data[i].train_no %>">Book</a></td>
                 </tr>
                 <% } %>
         </table>
+    </body>
