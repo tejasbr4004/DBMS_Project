@@ -95,10 +95,10 @@
                                     </td>
                                     <td><a href="/final_ticket/<%=data[i].book_id%>">Show Ticket</a></td>
                                     <td>
-                                        <% if (bookingDate>= currentDate) { %>
-                                            <a href="/cancel_ticket/<%=data[i].book_id%>"
-                                                onclick="return confirm('Are you sure you want to cancel the ticket?');">Cancel</a>
-                                            <% } %>
+
+                                        <a href="/cancel_ticket/<%=data[i].book_id%>"
+                                            onclick="return confirm('Are you sure you want to cancel the ticket?');">Cancel</a>
+
                                     </td>
                                 </tr>
                                 <% } %>
