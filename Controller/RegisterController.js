@@ -20,12 +20,12 @@ const RegisterPost=(req,res)=>{
     console.log(req.body);
     let address = req.body.address;
     if (is_admin == 'on') {
-        is_admin = true;
+        is_admin = 1;
     }
     else {
-        is_admin = false;
+        is_admin = 0;
     }
-    let sql = `INSERT INTO users(name,username,  email, password, is_admin, address,bank_ac,phone_no) VALUES('${name}','${username}' , '${email}', '${password}', '${is_admin}', '${address}', '${bank_ac}' , ${phone_no})`;
+    let sql = `INSERT INTO users(name,username,  email, password, is_admin, address,bank_ac,phone_no) VALUES('${name}','${username}' , '${email}', '${password}', ${is_admin}, '${address}', '${bank_ac}' , '${phone_no}')`;
     db.query(sql, (err, result) => {
         if (err) throw err;
         console.log(result);

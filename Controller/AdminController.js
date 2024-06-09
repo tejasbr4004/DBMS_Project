@@ -10,10 +10,11 @@ const AdminGet = (req, res) => {
         let fromDate = req.query['from-date'];
         let toDate = req.query['to-date'];
         let sql = `
-            SELECT users.name, users.username, bookings.train_no, bookings.seat_class, bookings.date,
+            SELECT users.name as custname, users.username, train_info.name,bookings.train_no, bookings.seat_class, bookings.date,
                    bookings.source, bookings.destination, bookings.book_id, users.phone_no, users.address
             FROM bookings
             JOIN users ON bookings.username = users.username
+            JOIN train_info ON bookings.train_no=train_info.train_no
             WHERE bookings.date BETWEEN ? AND ?;
         `;
         let values = [fromDate, toDate];

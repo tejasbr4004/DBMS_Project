@@ -43,6 +43,7 @@
                     <tr>
                         <th>User</th>
                         <th>Username</th>
+                        <th>Train Name</th>
                         <th>Train No</th>
                         <th>Seat Class</th>
                         <th>Book Date</th>
@@ -57,10 +58,13 @@
                     <% bookings.forEach(function(booking) { %>
                         <tr>
                             <td>
-                                <%= booking.name %>
+                                <%= booking.custname %>
                             </td>
                             <td>
                                 <%= booking.username %>
+                            </td>
+                            <td>
+                                <%= booking.name %>
                             </td>
                             <td>
                                 <%= booking.train_no %>
