@@ -4,7 +4,6 @@ const moment = require('moment');
 const methodOverride = require('method-override');
 const db = require('../Database/dbConnection');
 
-
 const AdminGet = (req, res) => {
     if (req.session.loggedin) {
         let fromDate = req.query['from-date'];
@@ -18,13 +17,24 @@ const AdminGet = (req, res) => {
             WHERE bookings.date BETWEEN ? AND ?;
         `;
         let values = [fromDate, toDate];
-        db.query(sql, values, (err, results) => {
+        db.query(sql, values, (err, bookings) => {
             if (err) {
                 throw err;
             }
-            res.render('admin', {
-                bookings: results,
-                username: req.session.username
+
+            // Query to get the details and count of the refund table
+            let refundDetailsSql = 'SELECT * FROM refund';
+            db.query(refundDetailsSql, (err, refunds) => {
+                if (err) {
+                    throw err;
+                }
+
+                res.render('admin', {
+                    bookings: bookings,
+                    username: req.session.username,
+                    refunds: refunds,
+                    refundCount: refunds.length
+                });
             });
         });
     } else {
