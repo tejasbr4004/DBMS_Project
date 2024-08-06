@@ -55,7 +55,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, "public/index.css")));//used as one of  boilerplate scripts
+// app.use(express.static(path.join(__dirname, "public/index.css")));//used as one of  boilerplate scripts
 app.use(session(sessionConfig));
 
 

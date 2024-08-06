@@ -13,6 +13,7 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "dbms_project": "file:",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.6",
     "ejs-mate": "^3.0.0",
@@ -24,6 +25,7 @@
     "nodemailer": "^6.9.13",
     "nodemon": "^2.0.15",
     "path": "^0.12.7",
+    "puppeteer-core": "^22.12.1",
     "router": "^1.3.6"
   }
 }

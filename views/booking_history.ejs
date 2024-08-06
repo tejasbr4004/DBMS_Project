@@ -70,7 +70,13 @@
                     </thead>
                     <tbody>
                         <% for (var i=0; i < data.length; i++) { %>
-                            <% var bookingDate=new Date(data[i].date); var currentDate=new Date(); %>
+                            <% 
+                                    var bookingDate = new Date(data[i].date);
+                                    var currentDate = new Date();
+                                    // Normalize the dates to midnight to only compare the date components
+                                    bookingDate.setHours(0, 0, 0, 0);
+                                    currentDate.setHours(0, 0, 0, 0);
+                            %>
                                 <tr>
                                     <td>
                                         <%= data[i].train_no %>

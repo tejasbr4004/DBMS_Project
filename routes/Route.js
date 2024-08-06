@@ -45,6 +45,7 @@ router.get('/booking_history', isLoggedIn.isLoggedIn,booking_historyController.b
 router.get('/cancel_ticket/:book_id', isLoggedIn.isLoggedIn,cancelTicketController.cancel_ticketGet);
 
 router.get('/final_ticket/:book_id' ,  isLoggedIn.isLoggedIn,FinalticketController.final_ticketGet);
+router.get('/final_ticket/:book_id/download', isLoggedIn.isLoggedIn, FinalticketController.downloadTicket);
 
 
 module.exports = router;
